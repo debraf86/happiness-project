@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>World Happiness</title>
+  <link rel="stylesheet" href="static/css/main.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://github.com/davatron5000/Lettering.js"></script>
+
+  <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+
+  <!-- <script scr="https://public.tableau.com/views/WorldHappiness_15743892847660/HappinessReport2015-17?:display_count=y&publish=yes&:origin=viz_share_link"></script> -->
+
+  
+</head>
+
+<body>
+  <script>
+        AOS.init();
+  </script>
+
+  <!-- <div data-aos="flip-left"
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000">
+    <h1>HAPPINESS AROUND THE WORLD</h1>
+  </div> -->
+  <div class="container-fluid px-0">
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div data-aos="flip-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000">
+              <h1>HAPPINESS AROUND THE WORLD</h1>
+          </div>
+          <div>
+            <a ref="{{ url_for('static', filename= 'Images/happiness.png') }}">
+            <img src="{{ url_for('static', filename= 'Images/happiness.png') }}" alt="happiness" style="width:100%" > 
+            </br></br>
+            </a>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <header class="header"> 
+    <div class="header-content clearfix">
+      <div class="row" id="selection">
+        <div class="col-md-12 text-center">
+          <h1 class="header-text text-center">Happiness by year and country</h1>
+          <select class="custom-select"id="selDataset" onchange="optionChangedOne(this.value)">
+            <option selected class="custom-option">Select Year</option>
+          </select>
+          <select class="custom-select"id="selDataset2" onchange="optionChangedTwo(this.value)">
+            <option selected class="custom-option">Select Country</option>
+          </select>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <P></P>
+
+    <div class="container-fluid" id="bar-section">
+      <div class="col-md-12" >
+      <hr class="my-4">
+        <div id="bar">
+        </div>
+      </div>
+    </div>
+
+   <P></P>
+  
+<hr>
+   
+    <div class="container-fluid" id="scatter-section">
+        <div id="scatter"></div>
+    </div>
+
+    <!-- <script> NOT USING THIS METHOD
+      function initViz() {
+        var containerDiv = document.getElementById( "vizContainer"), 
+          // url = "https://public.tableau.com/views/WorldHappiness_15743892847660/HappinessReport2015-17?:display_count=y&publish=yes&:origin=viz_share_link" 
+          url = "https://public.tableau.com/views/WorldHappiness_15743892847660/HappinessReport2015-17?:display_count=y&publish=yes&:origin=viz_share_link" 
+
+          options = {
+            hideTabs:true,
+            onFirstInteractive: function() {
+              console.log("viz")
+            }
+          };
+        var viz = tableau.Vizd(containerDiv, url, options);
+
+      } -->
+
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+  <script type="text/javascript" src="static/js/drawScatter.js"></script>
+  <script type="text/javascript" src="static/js/drawBar.js"></script>
+  <script type="text/javascript" src="static/js/app.js"></script>
+
+
+  <center>
+      <div style="background-color:SlateBlue;">
+      <a href="/map"><input type="button" value="Happiness MAP"></a>
+      <a href="/2018"><input type="button" value="Happiness 2018"></a>
+      </div> 
+  </center>
+
+</body>
+
+<footer>
+  <hr>
+  <center>
+  <p><b>Happiness</b> brought to you by: Deb Steinman, Joe Grantham, and Jung Hyng Son</p>
+  </center>
+  <br><br>
+  <hr>
+</footer>
+
+</html>
